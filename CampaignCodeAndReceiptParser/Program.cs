@@ -30,7 +30,7 @@ class Program
                 ValidateCampaignCode();
                 break;
             case 3:
-                Console.WriteLine("Receipt Text from OCR JSON:");
+               ParseAndPrintReceipt();
                 break;
             default:
                 Console.WriteLine("Please enter a valid choice");
@@ -62,5 +62,26 @@ class Program
         Console.WriteLine(isValid ? "Code is valid." : "Code is not valid.");
     }
 
-   
+    private static void ParseAndPrintReceipt()
+    {
+        var fullPath = Path.Combine(AppContext.BaseDirectory, "ReceiptParser/response.json");
+
+        if (!File.Exists(fullPath))
+        {
+            Console.WriteLine("response.json file could not be found.");
+            return;
+        }
+    
+        var json = File.ReadAllText(fullPath);
+        var lines = Parser.ParseTextLines(json);
+    
+        Console.WriteLine("\nReceipt Line:");
+        
+        foreach (var line in lines)
+        {
+            Console.WriteLine(line);
+        }
+    
+    }
+
 }

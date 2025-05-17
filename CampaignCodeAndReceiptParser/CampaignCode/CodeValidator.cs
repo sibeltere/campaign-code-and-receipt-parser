@@ -11,7 +11,9 @@ public class CodeValidator
 
     public bool ValidateCode(string code)
     {
-        if (code.Length != 8) return false;
+        if (code.Length != 8) 
+            return false;
+        
         var randomPart = code.Substring(0, 5);
         var checksum = code.Substring(5, 3);
         var expectedChecksum = CodeHelper.Hash(randomPart,_secretKey).Substring(0, 3);
