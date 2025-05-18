@@ -1,4 +1,3 @@
-using System.Security.Cryptography;
 using System.Text;
 
 namespace CampaignCodeAndReceiptParser.CampaignCode;
@@ -13,12 +12,21 @@ public class CodeGenerator
         _secretKey = secretKey;
     }
     
-    public string GenerateCode()
+    public List<string> GenerateCodes(int count)
     {
-        var randomPart = GenerateRandomString(5);
-        var hash = CodeHelper.Hash(randomPart,_secretKey);
-        var hashedPart = hash.Substring(0, 3);
-        return randomPart + hashedPart;
+        var codeList = new HashSet<string>();
+        
+        while (codeList.Count < count)
+        {
+            var randomPart = GenerateRandomString(5);
+            var hash = CodeHelper.Hash(randomPart, _secretKey);
+            var hashedPart = hash.Substring(0, 3);
+            var code = randomPart + hashedPart;
+
+            codeList.Add(code);
+        }
+
+        return codeList.ToList();
     }
     private string GenerateRandomString(int length)
     {

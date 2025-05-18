@@ -11,6 +11,6 @@ public static class CodeHelper
         using var hmac = new HMACSHA256(Encoding.UTF8.GetBytes(secretKey));
         var hash = hmac.ComputeHash(Encoding.UTF8.GetBytes(input));
 
-        return string.Concat(hash.Select(b => Characters[b % Characters.Length]));
+        return string.Concat(hash.Select(x => Characters[x % Characters.Length]));
     }
 }
