@@ -34,9 +34,11 @@ This module is responsible for generating unique, algorithmically verifiable cam
   - Recomputes the checksum and compares it with the provided one.
 - **Benefit**: No need for database lookups validation is algorithm-based.
 
+Note: I created two different class for code generation and code validator. Because I wanted to seperate of concerns and to provide Single of Responsibility. So each class has its own responsibility
+
 ---
 
-### 2. Receipt Parser
+### 2. Receipt Parser:
 
 This module parses the Json text extracted from receipts to obtain meaningful output.
 
@@ -80,3 +82,18 @@ cd campaign-code-and-receipt-parser
 # 2. Start
 dotnet run
 ```
+### Screenshots of the Program
+The Menu:
+<img width="1075" alt="The Menu" src="https://github.com/user-attachments/assets/faf3f906-be84-4614-bb34-c6dea4541504" />
+
+Code Generator:
+<img width="1297" alt="Code Generator" src="https://github.com/user-attachments/assets/e92befbe-5352-45ee-9e1e-da8dc750a087" />
+
+Code Validator:
+<img width="1297" alt="Code Validator" src="https://github.com/user-attachments/assets/5f1b25e5-226b-4d5b-9d52-f79a2a0a3e5e" />
+
+Receipt Parser:
+<img width="1333" alt="Receipt Parser" src="https://github.com/user-attachments/assets/b0bbd9f9-361a-4d13-84a4-b89ad848a9ee" />
+
+
+
