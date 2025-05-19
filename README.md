@@ -77,7 +77,7 @@ The main program offers three functionalities through a menu:
 ```bash
 # 1. Clone the repository
 git clone https://github.com/sibeltere/campaign-code-and-receipt-parser.git
-cd campaign-code-and-receipt-parser
+cd campaign-code-and-receipt-parser/CampaignCodeAndReceiptParser
 
 # 2. Start
 dotnet run
